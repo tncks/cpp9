@@ -1,0 +1,94 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+class Complex
+{
+private:
+	double real;
+	double imag;
+public:
+	Complex();
+	Complex(double real, double imag);
+
+	Complex operator+(const Complex &com);
+	Complex operator+(double real) const;
+
+	void operator=(const Complex &com);
+
+	void Print(void) const;
+
+	friend Complex operator+(double real, const Complex &com);
+	friend std::ostream &operator<<(std::ostream &os, const Complex &com);
+};
+
+Complex operator+(double real, const Complex &com)
+{
+	Complex ret(com.real, com.imag);
+
+	ret.real += real;
+
+	return ret;
+}
+
+int main()
+{
+	Complex com1(10.0, 100.0);
+	Complex com2(15.0, 100.0);
+
+	cout << com1 + com2 << endl;
+
+	//com1 = com1 + real;
+	//com1 = real + com1;
+
+	//com1.Print();
+
+	return 0;
+}
+
+Complex::Complex()
+	: real(0), imag(0)
+{
+
+}
+
+Complex::Complex(double real, double imag)
+	:real(real), imag(imag)
+{
+
+}
+
+Complex Complex::operator+(double real) const
+{
+	Complex ret(this->real, this->imag);
+
+	ret.real += real;
+
+	cout << ret.real << " " << ret.imag << endl;
+
+	return ret;
+}
+
+Complex Complex::operator+(const Complex &com)
+{
+	return Complex(real + com.real, imag + com.imag);
+}
+
+void Complex::operator=(const Complex &com)
+{
+	real = com.real;
+	imag = com.imag;
+}
+
+void Complex::Print(void) const
+{
+	cout << real << ' ' << imag << endl;
+}
+
+std::ostream &operator<<(std::ostream &os, const Complex &com)
+{
+	os << com.real << " + " << com.imag << "i";
+
+	return os;
+}

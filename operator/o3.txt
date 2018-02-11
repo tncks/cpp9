@@ -1,0 +1,31 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+class Counter {
+private:
+	static int count;
+
+public:
+	static void Count(void);
+};
+
+int Counter::count = 0;
+
+int main() {
+	Counter::Count();
+	Counter::Count();
+	Counter::Count();
+
+	return 0;
+}
+
+void Counter::Count()
+{
+	Counter::count += 1;
+
+	cout << count << "È¸ È£Ãâ!" << endl;
+
+	return;
+}

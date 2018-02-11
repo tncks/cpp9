@@ -1,0 +1,27 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+class MyCout : public std::ofstream
+{
+public:
+	MyCout();
+};
+
+int main()
+{
+	MyCout  god;
+
+	god << "Hello!" << std::endl;
+	
+
+	return 0;
+}
+
+MyCout::MyCout()
+	:std::ofstream(stdout)
+{
+
+}

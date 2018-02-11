@@ -1,0 +1,35 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+class MyClass {
+public:
+	void Method() {
+		cout << "MyClass!" << endl;
+		return;
+	}
+};
+
+class Inh : public MyClass
+{
+public:
+	void InhMethod() {
+		cout << "Inheritance" << endl;
+
+		return;
+	}
+};
+
+int main() {
+	MyClass *ptr = new Inh;
+
+	ptr->Method();
+
+	//ptr->InhMethod();
+
+	delete ptr;
+
+	return 0;
+}

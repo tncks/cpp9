@@ -1,0 +1,36 @@
+#include "stdafx.h"
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+class MyClass {
+public:
+	void Method() {
+		cout << "MyClass!" << endl;
+		return;
+	}
+};
+
+class Inh : public MyClass
+{
+public:
+	void InhMethod() {
+		cout << "Inheritance" << endl;
+
+		return;
+	}
+};
+
+int main() {
+	MyClass *ptr = new Inh;
+	Inh *ptr2 = 0;
+
+	ptr2 = static_cast<Inh *>(ptr);
+
+	ptr2->InhMethod();
+
+	delete ptr;
+
+	return 0;
+}

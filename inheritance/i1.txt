@@ -1,0 +1,49 @@
+#include "stdafx.h"
+#include <iostream>
+
+using namespace std;
+
+class Computer
+{
+private:
+	bool isTurnOn = false;
+public:
+	void TurnOn();
+	void TurnOff();
+
+	void Display();
+};
+
+int main()
+{
+	Computer myComputer;
+	
+	myComputer.TurnOn();
+
+	myComputer.Display();
+
+	myComputer.TurnOff();
+
+	myComputer.Display();
+
+	return 0;
+}
+
+void Computer::TurnOn() {
+	isTurnOn = true;
+	cout << "Tv Turned On" << endl;
+}
+
+void Computer::TurnOff()
+{
+	isTurnOn = false;
+	cout << "Tv Turned Off" << endl;
+}
+
+void Computer::Display()
+{
+	if (isTurnOn)
+	{
+		cout << "Hello TV!" << endl;
+	}
+}
